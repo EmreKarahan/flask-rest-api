@@ -4,3 +4,4 @@
 app/static/
 app/templates/
 app/tmp/
+__pycache__/
