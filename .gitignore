@@ -1,0 +1,5 @@
+/venv
+.idea/inspectionProfiles/
+app/static/
+app/templates/
+app/tmp/
