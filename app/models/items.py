@@ -1,0 +1,8 @@
+from app import db
+import  datetime
+
+class Items(db.Document):
+    title = db.StringField(max_length=60)
+    text = db.StringField()
+    done = db.BooleanField(default=False)
+    pub_date = db.DateTimeField(default=datetime.datetime.now)
