@@ -14,4 +14,5 @@ class Items(db.Document):
     lastCallDate = db.DateTimeField(default=None)
     location = db.StringField()
     status = db.IntField()
+    statusname = db.StringField()
     pub_date = db.DateTimeField(default=datetime.datetime.now)

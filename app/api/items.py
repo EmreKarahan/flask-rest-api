@@ -2,12 +2,13 @@ from flask import Flask, jsonify, request
 from app import app
 from ..models.items import Items
 from ..models.images import Images
+from ..helper.enums import Animal
 
 
 @app.route('/api/v1/items/add')
 def index():
     # As a list to test debug toolbar
-    Items.objects().delete()  # Removes
+    # Items.objects().delete()  # Removes
     Items(title="Simple todo A ПЫЩЬ!", url='http://www.google.com', price=150, status=1, isBackdoor=False).save()
     items = Items.objects.all()
     return jsonify({'items': items})
