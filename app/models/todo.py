@@ -1,9 +1,9 @@
-# from flask_mongoengine import MongoEngine
-# from app import db
-# import  datetime
+from app import db
+import datetime
 
-# class Todo(db.Document):
-#    title = db.StringField(max_length=60)
-#    text = db.StringField()
-#    done = db.BooleanField(default=False)
-#    pub_date = db.DateTimeField(default=datetime.datetime.now)
+
+class Todo(db.Document):
+    title = db.StringField(max_length=60)
+    text = db.StringField()
+    done = db.BooleanField(default=False)
+    pub_date = db.DateTimeField(default=datetime.datetime.now)

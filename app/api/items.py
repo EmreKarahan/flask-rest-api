@@ -1,37 +1,17 @@
 from flask import Flask, jsonify, render_template
 from app import app
-from ..models.todo import Todo
-
-
-
-tasks = [
-    {
-        'id': 1,
-        'title': u'Buy groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
-        'done': False
-    },
-    {
-        'id': 2,
-        'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web',
-        'done': False
-    }
-]
-
+from ..models.items import Items
+from ..models.images import Images
 
 
 
 @app.route('/')
 def index():
     # As a list to test debug toolbar
-    Todo.objects().delete()  # Removes
-    Todo(title="Simple todo A ПЫЩЬ!", text="12345678910").save()  # Insert
-    Todo(title="Simple todo B", text="12345678910").save()  # Insert
-    Todo.objects(title__contains="B").update(set__text="Hello world")  # Update
-    todos = Todo.objects.all()
-    return jsonify({'todos': todos})
-
+    Items.objects().delete()  # Removes
+    Items(title="Simple todo A ПЫЩЬ!", url= 'http://www.google.com', price=150, status=1, is_backdoor=False).save()  # Insert
+    items = Items.objects.all()
+    return jsonify({'items': items})
 
 
 @app.route('/api/v1.0/tasks', methods=['GET'])
