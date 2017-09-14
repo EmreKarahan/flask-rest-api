@@ -13,6 +13,5 @@ class Items(db.Document):
     callCount = db.IntField(default=0)
     lastCallDate = db.DateTimeField(default=None)
     location = db.StringField()
-    status = db.IntField()
-    statusname = db.StringField()
+    status = db.IntField(default=1)    
     pub_date = db.DateTimeField(default=datetime.datetime.now)
