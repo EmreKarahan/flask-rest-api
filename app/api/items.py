@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 from app import app
-from ..models.items import Items
-from ..models.images import Images
+from ..models.items import Items, Images
 from ..helper.enums import Animal
 import json
 from collections import namedtuple
@@ -20,6 +19,7 @@ def create():
     data = request.get_json()
     item = Items(**data)
     item.save()
+    Images(path='http://www.google.com', item='59ba88ff4620f2342829ec41').save()
     return jsonify(item)
 
 
